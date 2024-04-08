@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/NextLevel.gd" type="Script" id=1]
+[ext_resource path="res://font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://title_font.tres" type="DynamicFont" id=3]
+
+[node name="LevelComplete" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0117647, 0.396078, 0.701961, 1 )
+
+[node name="Banner" type="Label" parent="."]
+anchor_top = 0.315
+anchor_right = 1.0
+anchor_bottom = 0.444
+margin_top = -1.52588e-05
+margin_right = 340.0
+margin_bottom = 25.6
+rect_scale = Vector2( 0.75, 0.75 )
+custom_fonts/font = ExtResource( 3 )
+text = "Level 1 Completed!"
+align = 1
+
+[node name="NextLevel" type="Label" parent="."]
+anchor_top = 0.547
+anchor_right = 1.0
+anchor_bottom = 0.59
+margin_top = -2.20004
+margin_bottom = -2.00003
+custom_colors/font_color = Color( 0.305882, 0.756863, 0.160784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Go to next level in X"
+align = 1
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="NextLevel"]
+
+[connection signal="timeout" from="NextLevel/Timer" to="NextLevel" method="_on_Timer_timeout"]
